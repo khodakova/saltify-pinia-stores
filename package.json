@@ -1,0 +1,19 @@
+{
+  "name": "saltify-pinia-stores",
+  "version": "0.0.0",
+  "description": "Saltify pinia-store's ids",
+  "main": "index.js",
+  "author": "khodakova",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "5.5.4",
+    "vite": "5.4.1"
+  },
+  "peerDependencies": {
+    "vite": ">=4.0.0"
+  },
+  "dependencies": {
+    "@swc/core": "1.7.12",
+    "colorette": "2.0.20"
+  }
+}

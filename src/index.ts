@@ -11,10 +11,13 @@ export const saltifyPiniaStores = (options?: SaltifyPiniaStoresOptions): PluginO
 
     buildEnd(error) {
       if (options?.logEnable) {
+        console.log(error)
       }
     },
 
     transform(src, id) {
+    //
     },
   };
 };
+

@@ -1,5 +1,4 @@
 import * as SWC from '@swc/core';
-import { generateUid } from '@ebp/utils';
 
 export function parseBundleAst(code: string) {
   return SWC.parseSync(code, {
@@ -62,6 +61,8 @@ export function makeBinaryExpression(opts: {
     operator: opts.operator,
   };
 }
+
+export const generateUid = ():string => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 export function getUniqueId(salt?: string) {
   return salt ?? generateUid().slice(-4);

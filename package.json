@@ -30,7 +30,7 @@
   },
   "lint-staged": {
     "**/*.{ts}": [
-      "eslint --fix --ext .ts"
+      "eslint --fix"
     ]
   }
 }

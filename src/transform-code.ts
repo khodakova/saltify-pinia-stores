@@ -12,7 +12,6 @@ export function transformCode(src: string, id: string, uniqueVal: string): [stri
   if (!nodeModulesRegex.test(id) && defineStoreRegex.test(src)) {
 
     const ast = parseBundleAst(src);
-    // const fileName = id.match(/([^/]+$)/)?.[0];
 
     /** If code has defineStore from pinia */
     const hasDefineStore = ast.body

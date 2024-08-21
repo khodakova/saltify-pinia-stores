@@ -1,6 +1,6 @@
 {
-  "name": "saltify-pinia-stores",
-  "version": "0.0.0",
+  "name": "vite-plugin-saltify-pinia-stores",
+  "version": "0.0.1",
   "description": "Saltify pinia-store's ids",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -11,7 +11,12 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "khodakova",
   "license": "MIT",
   "type": "module",
@@ -19,7 +24,9 @@
     "prepare": "husky",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "build": "unbuild"
+    "build": "unbuild",
+    "version": "changeset add && changeset version",
+    "publish": "yarn changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-git": "0.2.0",
@@ -49,5 +56,20 @@
     "**/*.{ts}": [
       "eslint --fix"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khodakova/saltify-pinia-stores.git"
+  },
+  "keywords": [
+    "vite-plugin",
+    "pinia-stores",
+    "saltify",
+    "uniqueizer",
+    "mfe"
+  ],
+  "bugs": {
+    "url": "https://github.com/khodakova/saltify-pinia-stores/issues"
+  },
+  "homepage": "https://github.com/khodakova/saltify-pinia-stores#readme"
 }

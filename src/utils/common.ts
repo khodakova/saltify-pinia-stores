@@ -11,35 +11,6 @@ function span(): SWC.Span {
   return { start: 0, end: 0, ctxt: 0 };
 }
 
-export function makeIdentifier(name: string): SWC.Identifier {
-  return {
-    type: 'Identifier',
-    span: span(),
-    // @ts-expect-error SWC не учел свойство ctxt
-    ctxt: 0,
-    value: name,
-    optional: false,
-  };
-}
-
-export function makeVariableDeclaration(name: string, initValue: SWC.Expression): SWC.VariableDeclaration {
-  return {
-    type: 'VariableDeclaration',
-    span: span(),
-    // @ts-expect-error SWC не учел свойство ctxt
-    ctxt: 0,
-    kind: 'const',
-    declare: false,
-    declarations: [{
-      type: 'VariableDeclarator',
-      span: span(),
-      id: makeIdentifier(name),
-      init: initValue,
-      definite: false,
-    }],
-  };
-}
-
 export function makeStringLiteral(value: string): SWC.StringLiteral {
   return {
     type: 'StringLiteral',

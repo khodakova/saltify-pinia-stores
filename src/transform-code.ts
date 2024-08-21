@@ -5,7 +5,7 @@ import { getAllVariableDeclarators } from './utils/get-all-variable-declarators.
 const defineStoreRegex = /defineStore/;
 const nodeModulesRegex = /node_modules/;
 
-export function transform(src: string, id: string, uniqueVal: string): [string, boolean] {
+export function transformCode(src: string, id: string, uniqueVal: string): [string, boolean] {
   let newCode = '';
   let transformed = false;
 

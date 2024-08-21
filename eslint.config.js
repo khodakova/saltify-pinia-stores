@@ -38,6 +38,18 @@ export default tseslint.config(
         ExportDeclaration: { multiline: true, minProperties: 3 },
       }],
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "args": "all",
+          "argsIgnorePattern": "^_",
+          "caughtErrors": "all",
+          "caughtErrorsIgnorePattern": "^_",
+          "destructuredArrayIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "ignoreRestSiblings": true
+        }
+      ]
     }
   }
 );

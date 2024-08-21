@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { transform } from '../transform.ts';
+import { transformCode } from '../transform-code.ts';
 
 
 const mocks = [{
@@ -46,7 +46,7 @@ const mocks = [{
 const uniqueVal = Number(new Date()).toString()
 
 test.each(mocks)('$label -> correct', ({ code, value }) => {
-  const [result] = transform(code, '', uniqueVal);
+  const [result] = transformCode(code, '', uniqueVal);
 
   const storeName = result.match(/defineStore\((.*),/)?.[1]?.replaceAll(' ', '')
 

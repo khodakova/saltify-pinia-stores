@@ -4,12 +4,18 @@ import { generateUid } from './utils/common.ts';
 import { transformCode } from './transform-code.ts';
 
 type SaltifyPiniaStoresOptions = {
+  /** Unique value to be added in pinia-stores names */
   salt?: string,
+  /**
+   * If logs enabled
+   *
+   * @default false
+   */
   logEnable?: boolean,
 }
 
 export const saltifyPiniaStores = (options?: SaltifyPiniaStoresOptions): PluginOption => {
-  const uniqueVal = generateUid();
+  const uniqueVal = options?.salt ?? generateUid();
   const processedFiles = new Set();
 
   return {

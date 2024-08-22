@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-saltify-pinia-stores",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Saltify pinia-store's ids",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -24,9 +24,10 @@
     "prepare": "husky",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "test:once": "vitest run",
     "build": "unbuild",
-    "version": "changeset add && changeset version",
-    "publish": "yarn changeset publish"
+    "version": "yarn test:once && yarn build && changeset add && changeset version",
+    "publish": "yarn test:once && yarn build && yarn changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-git": "0.2.0",

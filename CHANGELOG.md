@@ -1,5 +1,11 @@
 # vite-plugin-saltify-pinia-stores
 
+## 0.0.2
+
+### Patch Changes
+
+- forwarding salt to plugin
+
 ## 0.0.1
 
 ### Patch Changes

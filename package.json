@@ -26,7 +26,7 @@
     "test:ui": "vitest --ui",
     "test:once": "vitest run",
     "build": "unbuild",
-    "version": "changeset add && changeset version",
+    "version": "yarn test:once && yarn build && changeset add && changeset version",
     "publish": "yarn test:once && yarn build && yarn changeset publish"
   },
   "devDependencies": {

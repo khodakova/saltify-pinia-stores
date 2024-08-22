@@ -34,9 +34,12 @@ export const saltifyPiniaStores = (options?: SaltifyPiniaStoresOptions): PluginO
     transform(src, id) {
       const fileName = id.match(/([^/]+$)/)?.[0];
 
-      const [_, isTransformed] = transformCode(src, id, uniqueVal);
+      const [transformedCode, isTransformed] = transformCode(src, id, uniqueVal);
 
-      if (isTransformed) processedFiles.add(fileName)
+      if (isTransformed) {
+        processedFiles.add(fileName);
+        return transformedCode;
+      }
     },
   };
 };

@@ -1,5 +1,11 @@
 # vite-plugin-saltify-pinia-stores
 
+## 0.0.3
+
+### Patch Changes
+
+- fixing build
+
 ## 0.0.2
 
 ### Patch Changes

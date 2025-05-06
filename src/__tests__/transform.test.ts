@@ -2,45 +2,62 @@ import { expect, test } from 'vitest';
 import { transformCode } from '../transform-code.ts';
 
 
-const mocks = [{
-  label: 'withExport',
-  code: `import { defineStore } from 'pinia';
+const mocks = [
+  {
+    label: 'withExport',
+    code: `import { defineStore } from 'pinia';
   export const useStore = defineStore('test', () => {})`,
-  value: '\'test\''
-},
-{
-  label: 'without export',
-  code: `import { defineStore } from 'pinia';
+    value: '\'test\''
+  },
+  {
+    label: 'without export',
+    code: `import { defineStore } from 'pinia';
     const useStore = defineStore('test', () => {})`,
-  value: '\'test\''
-},
-{
-  label: 'string literal',
-  code: `import { defineStore } from 'pinia';
+    value: '\'test\''
+  },
+  {
+    label: 'string literal',
+    code: `import { defineStore } from 'pinia';
     const useStore = defineStore('test', () => {})`,
-  value: '\'test\''
-},
-{
-  label: 'variable',
-  code: `import { defineStore } from 'pinia';
+    value: '\'test\''
+  },
+  {
+    label: 'variable',
+    code: `import { defineStore } from 'pinia';
     const storeName = 'test';
     const useStore = defineStore(storeName, () => {})`,
-  value: 'storeName'
-},
-{
-  label: 'template string',
-  code: `import { defineStore } from 'pinia';
+    value: 'storeName'
+  },
+  {
+    label: 'template string',
+    code: `import { defineStore } from 'pinia';
     const storeName = 'test';
     const useStore = defineStore(\`$\{storeName}-something\`, () => {})`,
-  value: '`${storeName}-something`'
-},
-{
-  label: 'env variables',
-  code: `import { defineStore } from 'pinia';
+    value: '`${storeName}-something`'
+  },
+  {
+    label: 'env variables',
+    code: `import { defineStore } from 'pinia';
     const storeName = 'test';
     const useStore = defineStore(\`$\{import.meta.env.VITE_ANY}$\{storeName}\`, () => {})`,
-  value: '`${import.meta.env.VITE_ANY}${storeName}`'
-}
+    value: '`${import.meta.env.VITE_ANY}${storeName}`'
+  },
+  {
+    label: 'func arg',
+    code: `import { defineStore } from 'pinia';
+    const storeName = 'test';
+    const func = () => {}
+    const useStore = defineStore('test', func)`,
+    value: '\'test\''
+  },
+  {
+    label: 'another vars',
+    code: `import { defineStore } from 'pinia';
+    const storeName = 'test';
+    let someVar;
+    const useStore = defineStore('test', func)`,
+    value: '\'test\''
+  },
 ]
 
 const uniqueVal = Number(new Date()).toString()

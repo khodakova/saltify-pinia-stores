@@ -23,10 +23,10 @@ export function transformCode(src: string, id: string, uniqueVal: string): [stri
       const allVarDeclarations = getAllVariableDeclarators(ast);
 
       allVarDeclarations.forEach((ad) => {
-        const caller = ad.init;
+        const caller = ad?.init;
 
         // creating new stores names
-        if (caller.type === 'CallExpression' && caller.callee.type === 'Identifier' && caller.callee.value === 'defineStore') {
+        if (caller && caller.type === 'CallExpression' && caller.callee.type === 'Identifier' && caller.callee.value === 'defineStore') {
           const storeIdArg = caller.arguments[0];
 
           storeIdArg.expression = makeBinaryExpression({
